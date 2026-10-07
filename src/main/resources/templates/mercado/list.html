@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head('Produtos')}"></head>
+<body>
+
+<div th:replace="~{fragments/layout :: nav}"></div>
+
+<div class="container pb-5">
+
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+        <div>
+            <h1 class="h3 mb-0">Produtos do Mercado Express</h1>
+            <p class="text-muted mb-0 small" sec:authorize="hasRole('CLIENTE')">Você está no modo consulta (perfil CLIENTE).</p>
+        </div>
+        <a sec:authorize="hasRole('ADMIN')" th:href="@{/mercado/novo}" class="btn btn-mx">+ Novo produto</a>
+    </div>
+
+    <div class="alert alert-success" th:if="${sucesso}" th:text="${sucesso}"></div>
+    <div class="alert alert-danger" th:if="${erro}" th:text="${erro}"></div>
+
+    <form th:action="@{/mercado}" method="get" class="row g-2 mb-3">
+        <div class="col-sm-8 col-md-6">
+            <input type="search" name="busca" th:value="${busca}" class="form-control" placeholder="Buscar produto pelo nome">
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-outline-success">Buscar</button>
+            <a th:if="${busca}" th:href="@{/mercado}" class="btn btn-link text-muted">Limpar</a>
+        </div>
+    </form>
+
+    <div class="card shadow-sm">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-success">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Tipo</th>
+                        <th>Setor</th>
+                        <th>Tamanho</th>
+                        <th>Preço</th>
+                        <th>Estoque</th>
+                        <th class="text-end">Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="mercado : ${mercados}">
+                        <td th:text="${mercado.id}"></td>
+                        <td th:text="${mercado.nome}"></td>
+                        <td th:text="${mercado.tipo}"></td>
+                        <td th:text="${mercado.setor}"></td>
+                        <td th:text="${#numbers.formatDecimal(mercado.tamanho, 1, 'POINT', 2, 'COMMA')}"></td>
+                        <td th:text="${'R$ ' + #numbers.formatDecimal(mercado.preco, 1, 'POINT', 2, 'COMMA')}"></td>
+                        <td th:text="${mercado.estoque}"></td>
+                        <td class="text-end text-nowrap">
+                            <a th:href="@{/mercado/{id}(id=${mercado.id})}" class="btn btn-sm btn-outline-primary">Ver</a>
+                            <a sec:authorize="hasRole('ADMIN')" th:href="@{/mercado/{id}/editar(id=${mercado.id})}" class="btn btn-sm btn-outline-warning">Editar</a>
+                            <form sec:authorize="hasRole('ADMIN')" th:action="@{/mercado/{id}/excluir(id=${mercado.id})}" method="post" class="d-inline"
+                                  onsubmit="return confirm('Confirma a exclusão deste produto?');">
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(mercados)}">
+                        <td colspan="8" class="text-center text-muted py-4">Nenhum produto encontrado.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

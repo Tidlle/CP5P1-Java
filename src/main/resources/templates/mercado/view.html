@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head(${mercado.nome})}"></head>
+<body>
+
+<div th:replace="~{fragments/layout :: nav}"></div>
+
+<div class="container pb-5">
+    <div class="card shadow-sm" style="max-width: 560px;">
+        <div class="card-body">
+            <span class="badge badge-role-cliente mb-2" th:text="${mercado.setor}">Setor</span>
+            <h1 class="h4 mb-3" th:text="${mercado.nome}"></h1>
+            <dl class="row mb-0">
+                <dt class="col-sm-4">Id</dt>
+                <dd class="col-sm-8" th:text="${mercado.id}"></dd>
+
+                <dt class="col-sm-4">Tipo</dt>
+                <dd class="col-sm-8" th:text="${mercado.tipo}"></dd>
+
+                <dt class="col-sm-4">Setor</dt>
+                <dd class="col-sm-8" th:text="${mercado.setor}"></dd>
+
+                <dt class="col-sm-4">Tamanho</dt>
+                <dd class="col-sm-8" th:text="${#numbers.formatDecimal(mercado.tamanho, 1, 'POINT', 2, 'COMMA')}"></dd>
+
+                <dt class="col-sm-4">Preço</dt>
+                <dd class="col-sm-8" th:text="${'R$ ' + #numbers.formatDecimal(mercado.preco, 1, 'POINT', 2, 'COMMA')}"></dd>
+
+                <dt class="col-sm-4">Estoque</dt>
+                <dd class="col-sm-8" th:text="${mercado.estoque} + ' unidade(s)'"></dd>
+            </dl>
+        </div>
+        <div class="card-footer bg-white d-flex justify-content-between">
+            <a th:href="@{/mercado}" class="btn btn-secondary">Voltar</a>
+            <div sec:authorize="hasRole('ADMIN')">
+                <a th:href="@{/mercado/{id}/editar(id=${mercado.id})}" class="btn btn-warning">Editar</a>
+                <form th:action="@{/mercado/{id}/excluir(id=${mercado.id})}" method="post" class="d-inline"
+                      onsubmit="return confirm('Confirma a exclusão deste produto?');">
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

@@ -1,0 +1,120 @@
+/* Mercado Express - identidade visual */
+:root {
+    --mx-verde: #1f7a4d;
+    --mx-verde-escuro: #155c39;
+    --mx-laranja: #f2994a;
+    --mx-creme: #fbf7ef;
+    --mx-texto: #22312a;
+}
+
+body {
+    background: var(--mx-creme);
+    color: var(--mx-texto);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.mx-navbar {
+    background: var(--mx-verde);
+}
+
+.mx-navbar .navbar-brand span {
+    color: var(--mx-laranja);
+}
+
+.btn-mx {
+    background: var(--mx-verde);
+    border-color: var(--mx-verde);
+    color: #fff;
+}
+
+.btn-mx:hover, .btn-mx:focus {
+    background: var(--mx-verde-escuro);
+    border-color: var(--mx-verde-escuro);
+    color: #fff;
+}
+
+.btn-mx-laranja {
+    background: var(--mx-laranja);
+    border-color: var(--mx-laranja);
+    color: #fff;
+}
+
+.btn-mx-laranja:hover {
+    background: #d97f32;
+    border-color: #d97f32;
+    color: #fff;
+}
+
+.card {
+    border: none;
+    border-radius: 14px;
+}
+
+/* ---------- Landing page ---------- */
+.hero {
+    background: linear-gradient(135deg, var(--mx-verde) 0%, var(--mx-verde-escuro) 100%);
+    color: #fff;
+    padding: 5rem 0 6rem;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+.hero h1 span {
+    color: var(--mx-laranja);
+}
+
+.setor-card {
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.setor-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .08);
+}
+
+.setor-icone {
+    font-size: 2.5rem;
+}
+
+/* ---------- Telas de autenticacao (login / cadastro) ---------- */
+.auth-wrapper {
+    min-height: 100vh;
+}
+
+.auth-lado {
+    background: linear-gradient(160deg, var(--mx-verde) 0%, var(--mx-verde-escuro) 100%);
+    color: #fff;
+}
+
+.auth-lado h2 span {
+    color: var(--mx-laranja);
+}
+
+.auth-form {
+    max-width: 420px;
+    width: 100%;
+}
+
+.auth-form .form-control {
+    padding: .7rem .9rem;
+    border-radius: 10px;
+}
+
+.auth-form .form-control:focus {
+    border-color: var(--mx-verde);
+    box-shadow: 0 0 0 .2rem rgba(31, 122, 77, .2);
+}
+
+.badge-role-admin {
+    background: var(--mx-laranja);
+}
+
+.badge-role-cliente {
+    background: var(--mx-verde);
+}
+
+.stat-card .numero {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--mx-verde);
+}

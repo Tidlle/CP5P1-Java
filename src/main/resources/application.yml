@@ -1,0 +1,43 @@
+# ==========================================================
+# CP5 Parte 1 - TDS FIAP - Mercado Express (Spring Security MVC)
+# ==========================================================
+# Todas as configuracoes sensiveis vem de variaveis de ambiente.
+# Os valores apos ":" sao apenas fallback para rodar localmente.
+
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: mercado-express-security
+
+  # Aceita a URL JDBC completa (DB_URL) ou as partes separadas (DB_HOST/DB_PORT/DB_NAME),
+  # que e o formato fornecido pelo blueprint do Render (render.yaml).
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:mercado_express}}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 5
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  thymeleaf:
+    cache: false
+
+# Usuario ADMIN criado automaticamente na primeira execucao
+# (o cadastro publico /cadastro cria somente usuarios CLIENTE)
+app:
+  admin:
+    nome: ${ADMIN_NOME:Administrador}
+    email: ${ADMIN_EMAIL:admin@mercado.com}
+    senha: ${ADMIN_SENHA:admin123}
+  seed-produtos: ${SEED_PRODUTOS:true}
