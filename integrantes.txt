@@ -7,7 +7,7 @@ Integrantes do grupo:
 
 Link do GitHub (Projeto Spring Security MVC): https://github.com/Tidlle/CP5P1-Java
 
-Link do Deploy: [TODO - preencher com o link de producao, ex.: https://cp5p1-java.onrender.com]
+Link do Deploy: https://cp5p1-java.onrender.com
 Plataforma de Deploy utilizada: Render (Web Service Docker + PostgreSQL gerenciado)
 
 IDE utilizada: IntelliJ IDEA

@@ -10,7 +10,34 @@
 body {
     background: var(--mx-creme);
     color: var(--mx-texto);
-    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    /* Poppins instalada via WebJar (fontsource__poppins) */
+    font-family: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+h1, h2, h3, .navbar-brand {
+    letter-spacing: -.01em;
+}
+
+/* Bootstrap Icons alinhados ao texto */
+.bi {
+    vertical-align: -.125em;
+}
+
+.input-group-text {
+    background: #fff;
+    color: var(--mx-verde);
+    border-radius: 10px 0 0 10px;
+}
+
+.hero-icone {
+    font-size: 9rem;
+    color: rgba(255, 255, 255, .85);
+    line-height: 1;
+}
+
+.erro-icone {
+    font-size: 5rem;
+    color: #dc3545;
 }
 
 .mx-navbar {
@@ -73,7 +100,21 @@ body {
 }
 
 .setor-icone {
-    font-size: 2.5rem;
+    width: 72px;
+    height: 72px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    border-radius: 50%;
+    background: rgba(31, 122, 77, .1);
+    color: var(--mx-verde);
+}
+
+.setor-card:hover .setor-icone {
+    background: var(--mx-verde);
+    color: #fff;
 }
 
 /* ---------- Telas de autenticacao (login / cadastro) ---------- */
@@ -111,6 +152,20 @@ body {
 
 .badge-role-cliente {
     background: var(--mx-verde);
+}
+
+.stat-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card .stat-icone {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.6rem;
+    color: rgba(31, 122, 77, .18);
 }
 
 .stat-card .numero {

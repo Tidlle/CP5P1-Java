@@ -9,30 +9,33 @@
 
     <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
         <div>
-            <h1 class="h3 mb-0">Painel administrativo</h1>
+            <h1 class="h3 mb-0"><i class="bi bi-speedometer2 text-success me-2"></i>Painel administrativo</h1>
             <p class="text-muted mb-0">Olá, <strong sec:authentication="name">admin</strong>. Área restrita ao perfil ADMIN.</p>
         </div>
         <div class="d-flex gap-2">
-            <a th:href="@{/mercado}" class="btn btn-outline-success">Gerenciar produtos</a>
-            <a th:href="@{/mercado/novo}" class="btn btn-mx">+ Novo produto</a>
+            <a th:href="@{/mercado}" class="btn btn-outline-success"><i class="bi bi-grid-3x3-gap me-1"></i>Gerenciar produtos</a>
+            <a th:href="@{/mercado/novo}" class="btn btn-mx"><i class="bi bi-plus-lg me-1"></i>Novo produto</a>
         </div>
     </div>
 
     <div class="row g-3 mb-4">
         <div class="col-md-4">
             <div class="card stat-card shadow-sm p-3">
+                <i class="bi bi-box-seam stat-icone"></i>
                 <div class="text-muted small">Produtos cadastrados</div>
                 <div class="numero" th:text="${totalProdutos}">0</div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card stat-card shadow-sm p-3">
+                <i class="bi bi-people stat-icone"></i>
                 <div class="text-muted small">Clientes</div>
                 <div class="numero" th:text="${totalClientes}">0</div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card stat-card shadow-sm p-3">
+                <i class="bi bi-person-gear stat-icone"></i>
                 <div class="text-muted small">Administradores</div>
                 <div class="numero" th:text="${totalAdmins}">0</div>
             </div>
@@ -40,7 +43,7 @@
     </div>
 
     <div class="card shadow-sm">
-        <div class="card-header bg-white fw-semibold">Usuários cadastrados (TDS_Users_Mercado)</div>
+        <div class="card-header bg-white fw-semibold"><i class="bi bi-person-lines-fill me-2"></i>Usuários cadastrados (TDS_Users_Mercado)</div>
         <div class="card-body p-0">
             <div class="table-responsive">
                 <table class="table align-middle mb-0">

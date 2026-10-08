@@ -43,6 +43,13 @@ class SegurancaFluxoTest {
     }
 
     @Test
+    void iconesEFonteSaoPublicos() throws Exception {
+        mvc.perform(get("/webjars/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css")).andExpect(status().isOk());
+        mvc.perform(get("/webjars/bootstrap-icons/1.13.1/font/fonts/bootstrap-icons.woff2")).andExpect(status().isOk());
+        mvc.perform(get("/webjars/fontsource__poppins/4.5.1/400.css")).andExpect(status().isOk());
+    }
+
+    @Test
     void telaDeLoginPersonalizada() throws Exception {
         mvc.perform(get("/login"))
                 .andExpect(status().isOk())

@@ -28,7 +28,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         // Rotas publicas: landing page, login, cadastro (Sign Up), recursos estaticos
                         .requestMatchers("/", "/index", "/login", "/cadastro", "/acesso-negado", "/error").permitAll()
-                        .requestMatchers("/css/**", "/img/**", "/favicon.ico").permitAll()
+                        .requestMatchers("/css/**", "/img/**", "/webjars/**", "/favicon.ico").permitAll()
                         // Somente ADMIN: painel e operacoes de escrita do CRUD (Create, Update, Delete)
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/mercado/novo", "/mercado/*/editar", "/mercado/*/excluir").hasRole("ADMIN")

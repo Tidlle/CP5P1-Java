@@ -9,7 +9,7 @@ Aplicação **Spring MVC** para uma empresa do tipo **mercado express** (meias, 
 
 ## Links
 
-- **Deploy (produção):** `[TODO - link do Render]`
+- **Deploy (produção):** https://cp5p1-java.onrender.com
 - **Plataforma de deploy:** Render (Web Service com Docker + PostgreSQL gerenciado)
 - **IDE utilizada:** IntelliJ IDEA
 
@@ -26,6 +26,10 @@ Aplicação **Spring MVC** para uma empresa do tipo **mercado express** (meias, 
 - Lombok
 - Spring Boot DevTools
 - Bootstrap 5 (CDN) + CSS próprio
+- **Bootstrap Icons 1.13.1**: biblioteca de ícones, instalada via WebJar (`org.webjars.npm:bootstrap-icons`)
+- **Fonte Poppins**: instalada via WebJar (`org.webjars.npm:fontsource__poppins`)
+
+> Os ícones e a fonte são dependências Maven servidas pela própria aplicação em `/webjars/**` (rota liberada no Spring Security). Eles não dependem de CDN externa.
 - Testes: JUnit 5, Spring Security Test, H2 (somente nos testes)
 
 ### Spring Initializr

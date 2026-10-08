@@ -59,6 +59,19 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- Biblioteca de icones e fonte servidas localmente via WebJars (/webjars/**) -->
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>bootstrap-icons</artifactId>
+            <version>1.13.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>fontsource__poppins</artifactId>
+            <version>4.5.1</version>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
