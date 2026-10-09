@@ -33,6 +33,22 @@ spring:
   thymeleaf:
     cache: false
 
+  # Cache de arquivos estaticos (CSS, icones, fontes). Sem isso o Spring Security envia
+  # "no-store" e o navegador baixa a fonte de icones de novo a cada pagina.
+  # O versionamento por conteudo coloca um hash na URL (ex.: style-3f2a...css),
+  # entao uma alteracao no arquivo gera uma URL nova e o cache nunca fica desatualizado.
+  web:
+    resources:
+      cache:
+        cachecontrol:
+          max-age: 365d
+          cache-public: true
+      chain:
+        strategy:
+          content:
+            enabled: true
+            paths: /**
+
 # Usuario ADMIN criado automaticamente na primeira execucao
 # (o cadastro publico /cadastro cria somente usuarios CLIENTE)
 app:

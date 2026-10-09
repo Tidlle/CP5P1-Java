@@ -17,6 +17,7 @@ import static org.springframework.security.test.web.servlet.request.SecurityMock
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrlPattern;
@@ -47,6 +48,16 @@ class SegurancaFluxoTest {
         mvc.perform(get("/webjars/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css")).andExpect(status().isOk());
         mvc.perform(get("/webjars/bootstrap-icons/1.13.1/font/fonts/bootstrap-icons.woff2")).andExpect(status().isOk());
         mvc.perform(get("/webjars/fontsource__poppins/4.5.1/400.css")).andExpect(status().isOk());
+    }
+
+    @Test
+    void arquivosEstaticosFicamEmCache() throws Exception {
+        mvc.perform(get("/webjars/bootstrap-icons/1.13.1/font/fonts/bootstrap-icons.woff2"))
+                .andExpect(header().string("Cache-Control", org.hamcrest.Matchers.containsString("max-age=31536000")));
+
+        // Os templates referenciam o CSS com hash de conteudo na URL
+        mvc.perform(get("/"))
+                .andExpect(content().string(org.hamcrest.Matchers.matchesPattern("(?s).*/css/style-[0-9a-f]{32}\\.css.*")));
     }
 
     @Test

@@ -27,6 +27,7 @@ Aplicação **Spring MVC** para uma empresa do tipo **mercado express** (meias, 
 - Spring Boot DevTools
 - Bootstrap 5 (CDN) + CSS próprio
 - **Bootstrap Icons 1.13.1**: biblioteca de ícones, instalada via WebJar (`org.webjars.npm:bootstrap-icons`)
+- **Font Awesome Free 7.3.0** (estilo *solid*): ícones temáticos dos setores (meias, limpeza, hortifruti), instalada via WebJar (`org.webjars:font-awesome`)
 - **Fonte Poppins**: instalada via WebJar (`org.webjars.npm:fontsource__poppins`)
 
 > Os ícones e a fonte são dependências Maven servidas pela própria aplicação em `/webjars/**` (rota liberada no Spring Security). Eles não dependem de CDN externa.
