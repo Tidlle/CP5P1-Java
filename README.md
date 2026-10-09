@@ -270,7 +270,7 @@ O projeto tem um `Dockerfile` (build multi-stage com Maven e execução com JRE 
 1. No [Render](https://render.com): **New → Blueprint** e selecione este repositório.
 2. O Render lê o `render.yaml`, cria o banco `mercado-express-db` e o serviço `cp5p1-java`, e liga automaticamente as variáveis `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USERNAME` e `DB_PASSWORD`.
 3. Quando solicitado, informe o valor de `ADMIN_SENHA` (a senha do ADMIN de produção).
-4. Depois do build, a aplicação fica disponível em `https://<nome-do-servico>.onrender.com`.
+4. Depois do build, a aplicação fica disponível em `https://cp5p1-java.onrender.com`.
 
 > No plano gratuito, o serviço "dorme" após um tempo sem acesso, e o primeiro acesso pode levar cerca de 1 minuto.
 
