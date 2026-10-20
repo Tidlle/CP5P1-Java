@@ -6,6 +6,7 @@ Aplicação **Spring MVC** para uma empresa do tipo **mercado express** (meias, 
 
 - Eduardo Martins — RM562259
 - João Victor Alcantara — RM562707
+- Thiago Sposito — RM569461
 
 ## Links
 
