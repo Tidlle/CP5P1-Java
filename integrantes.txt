@@ -4,6 +4,7 @@ Turma: 2TDSR
 Integrantes do grupo:
 - Nome: Eduardo Martins | RM: 562259
 - Nome: João Victor Alcantara | RM: 562707
+- Nome: Thiago Sposito | RM: 569461
 
 Link do GitHub (Projeto Spring Security MVC): https://github.com/Tidlle/CP5P1-Java
 
